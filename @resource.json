@@ -1,0 +1,11 @@
+{
+  "transpiler": {
+    "@import": "js/transpiler#^0.1.0",
+    "run": {
+      "@listen": [
+        "@build",
+        "@fileModified"
+      ]
+    }
+  }
+}
