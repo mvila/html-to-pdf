@@ -18,7 +18,7 @@ async function run() {
 
   server.use(jsonError());
   server.use(cors({maxAge: 300})); // 5 minutes
-  server.use(body());
+  server.use(body({limit: '32mb'}));
 
   server.use(async ctx => {
     if (ctx.method.toUpperCase() !== 'POST') {
