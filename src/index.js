@@ -17,7 +17,7 @@ async function run() {
   const server = new Koa();
 
   server.use(jsonError());
-  server.use(cors({maxAge: 300})); // 5 minutes
+  server.use(cors({maxAge: 900})); // 15 minutes
   server.use(body({limit: '32mb'}));
 
   server.use(async ctx => {
@@ -50,7 +50,7 @@ async function run() {
     debug(`Request handled (duration: ${duration} ms)`);
   });
 
-  server.listen(PORT);
+  server.listen(PORT).setTimeout(900 * 1000); // 15 minutes;
 
   console.log(`[INFO] Server started on port ${PORT}`);
 }
